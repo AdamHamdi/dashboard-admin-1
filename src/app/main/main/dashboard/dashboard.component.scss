@@ -1,0 +1,17 @@
+.card{height:34rem;}
+.blog-widget .blog-image img {
+    object-fit: cover;
+    border-radius: 4px;
+    margin-top: -45px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+}
+.blog-widget {
+    margin-top: 30px;
+    height: 32.12rem;
+}
+@media (min-width: 768px){
+.blog-img-height {
+    max-height: 238px;
+}
+}

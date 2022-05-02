@@ -1,0 +1,381 @@
+<mat-drawer-container class="sidenav-container" autosize>
+    <mat-drawer #drawer class="sidenav" opened mode="side">
+        <div class=" heading  p-2">
+
+            <img src="../../assets/img/angular2-logo-white.png" width="40" alt="">
+            <span class="text-white ml-3 text-uppercase">Creative Team</span>
+
+
+        </div>
+        <div class="p-2">
+            <mat-list role="list" class="sidenav-list">
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/dashboard"
+                    routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined   ">
+                        dashboard
+                    </mat-icon>
+                    <span>
+                        Dashboard
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/forms" routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined   ">
+                        content_paste
+                    </mat-icon>
+                    <span>
+                        Forms
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/tables" routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined ">
+                        table
+                    </mat-icon>
+                    <span>
+                        Tables
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/maps" routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined ">
+                        pin_drop
+                    </mat-icon>
+                    <span>
+                        Maps
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/widgets"
+                    routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined">
+                        widgets
+                    </mat-icon>
+                    <span>
+                        Widgets
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/charts" routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined">
+                        insights
+                    </mat-icon>
+                    <span>
+                        Charts
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/calendar"
+                    routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined">
+                        calendar_month
+                    </mat-icon>
+                    <span>
+                        Calendar
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/pages" routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined">
+                        image
+                    </mat-icon>
+                    <span>
+                        Pages
+                    </span>
+                </mat-list-item>
+                <mat-list-item role="listitem" class="sidenav-list-item" routerLink="/products"
+                    routerLinkActive="active">
+                    <mat-icon class="material-symbols-outlined">
+                        list_alt
+                    </mat-icon>
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <span>
+                            Products
+                        </span>
+                        <mat-icon class="material-symbols-outlined mr-0" (click)="openList()"*ngIf="!productList">
+                            expand_more
+                        </mat-icon>
+                        <mat-icon class="material-symbols-outlined mr-0" (click)="closeList()"*ngIf="productList">
+                            expand_less
+                        </mat-icon>
+                    </div>
+
+                </mat-list-item>
+                <mat-nav-list *ngIf="productList" class="sidenav-list pt-0">
+                    <mat-list-item role="listitem" class="pl-4 sidenav-list-item " routerLink="/products"
+                        routerLinkActive=" "> <span>
+                            Products
+                        </span></mat-list-item>
+                    <mat-list-item role="listitem" class="pl-4 sidenav-list-item" routerLink="/products"
+                        routerLinkActive=" ">
+                      <span>product details</span>   
+                        </mat-list-item>
+                    <mat-list-item role="listitem" class="pl-4 sidenav-list-item" routerLink="/products"
+                        routerLinkActive=" "> <span>Cart</span> </mat-list-item>
+                    <mat-list-item role="listitem" class=" pl-4 sidenav-list-item" routerLink="/products"
+                        routerLinkActive=" "> <span>Checkout</span></mat-list-item>
+
+                </mat-nav-list>
+            </mat-list>
+        </div>
+
+    </mat-drawer>
+
+    <div class="sidenav-content" [ngClass]="drawer.opened ? '' : 'sidenav-content-closed'">
+        <div class="row m-0 w-100">
+            <div class="col-12 p-0">
+                <div class="top-bar">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <button mat-icon-button *ngIf="openedSidebar"
+                            (click)="drawer.close();openedSidebar=!openedSidebar">
+                            <mat-icon class="material-symbols-outlined ">
+                                menu
+                            </mat-icon>
+                        </button>
+                        <button mat-icon-button *ngIf="!openedSidebar"
+                            (click)="drawer.open();openedSidebar=!openedSidebar">
+                            <mat-icon class="material-symbols-outlined ">
+                                close
+                            </mat-icon>
+                        </button>
+                        <div class="header_right d-flex justify-content-between align-items-center">
+                            <div class="header_notification_warp d-flex align-items-center">
+                                <a>
+                                    <a class="CHATBOX_open nav-link-notify" (click)="openMail();closeNotif()">
+                                        <mat-icon class="material-symbols-outlined msg">
+                                            mail
+                                        </mat-icon>
+                                    </a>
+                                </a>
+                                <div class="Menu_mails_Wrap active" *ngIf="mail">
+                                    <div class="mails_Header d-flex  justify-content-between align-items-center">
+                                        <h4 class="text-white">Mails </h4>
+                                        <a (click)="closeMail()">
+                                            <mat-icon class="material-symbols-outlined text-white">
+                                                close
+                                            </mat-icon>
+                                        </a>
+                                    </div>
+                                    <div class="mails_body">
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/2.png" class="notif" width="45"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="mail_content ">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">Cool Marketing </h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/4.png" class="notif" width="45"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="mail_content">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">Awesome packages</h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/3.png" class="notif" width="45"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="mail_content">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">what a packages</h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/2.png" class="notif" width="45"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="mail_content">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">Cool Marketing </h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/4.png" class="notif" width="45"
+                                                        alt=""></a>
+                                            </div>
+                                            <div class="mail_content">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">Awesome packages</h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="single_mail d-flex align-items-center">
+                                            <div class="mail_thumb">
+                                                <a href="#"><img src="../assets/img/3.png" class="notif" alt=""></a>
+                                            </div>
+                                            <div class="mail_content">
+                                                <a href="#">
+                                                    <h5 class="text-dark m-0">what a packages</h5>
+                                                </a>
+                                                <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mail_footer">
+                                        <div class="submit_button text-center pt_20">
+                                            <a href="#" class="btn_1 green">See More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a>
+                                    <a class="bell_notification_clicker nav-link-notify"
+                                        (click)="openNotif();closeMail()">
+                                        <mat-icon class=" notif material-symbols-outlined">
+                                            notifications
+                                        </mat-icon>
+
+                                    </a>
+
+                                    <div class="Menu_NOtification_Wrap active" *ngIf="notif">
+                                        <div
+                                            class="notification_Header d-flex  justify-content-between align-items-center">
+                                            <h4 class="text-white">Notifications</h4>
+                                            <a (click)="closeNotif()">
+                                                <mat-icon class="material-symbols-outlined text-white">
+                                                    close
+                                                </mat-icon>
+                                            </a>
+                                        </div>
+                                        <div class="Notification_body">
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/2.png" class="notif" width="45"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="notify_content ">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">Cool Marketing </h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/4.png" class="notif" width="45"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="notify_content">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">Awesome packages</h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/3.png" class="notif" width="45"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="notify_content">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">what a packages</h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/2.png" class="notif" width="45"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="notify_content">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">Cool Marketing </h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/4.png" class="notif" width="45"
+                                                            alt=""></a>
+                                                </div>
+                                                <div class="notify_content">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">Awesome packages</h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="single_notify d-flex align-items-center">
+                                                <div class="notify_thumb">
+                                                    <a href="#"><img src="../assets/img/3.png" class="notif" alt=""></a>
+                                                </div>
+                                                <div class="notify_content">
+                                                    <a href="#">
+                                                        <h5 class="text-dark m-0">what a packages</h5>
+                                                    </a>
+                                                    <p class="text-secondary m-0">Lorem ipsum dolor sit amet</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="nofity_footer">
+                                            <div class="submit_button text-center pt_20">
+                                                <a href="#" class="btn_1 green">See More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </div>
+                            <div class="profile_info d-flex align-items-center">
+                                <div class="profile_thumb mr_20">
+                                    <img src="../assets/img/4.png" alt="#">
+                                </div>
+                                <div class="author_name pt-3">
+                                    <h4 class="f_s_15 f_w_500 mb-0">Jiue Anderson</h4>
+                                    <p class="f_s_12 f_w_400">Manager</p>
+                                </div>
+                                <div class="profile_info_iner">
+                                    <div class="profile_author_name">
+                                        <p>Manager</p>
+                                        <h5>Jiue Anderson</h5>
+                                    </div>
+                                    <div class="profile_info_details">
+                                        <a href="#">My Profile </a>
+                                        <a href="#">Settings</a>
+                                        <a href="#">Log Out </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <div class="row w-100 m-0">
+                <div class="col-12 p-3">
+                    <app-main></app-main>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</mat-drawer-container>

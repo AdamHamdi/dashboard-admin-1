@@ -1,0 +1,296 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+
+.top-bar {
+    background: #fff;
+    height: 56px;
+    display: flex;
+    align-items: center;
+
+    .mat-icon-button {
+        background: transparent;
+
+        .mat-icon {
+            font-size: 26px;
+            font-weight: bold;
+            color: #0f1a34;
+        }
+    }
+
+}
+
+.text-themecolor {
+    color: #0f1a34 !important;
+}
+
+.white_card {
+    background-color: #fff;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.anlite_table {
+    background: #5886ff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+a {
+    color: #009efb;
+    text-decoration: none !important;
+}
+
+.breadcrumb {
+    background-color: transparent;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+.dropdown,
+.dropend,
+.dropstart,
+.dropup {
+    position: relative;
+}
+
+.theme_menu_dropdown li a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6f7a92;
+    padding: 5px 20px;
+}
+
+.dropdown-menu.show {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(0px, 33px);
+}
+
+.profile_info {
+    position: relative;
+    margin: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        .profile_info_iner {
+            display: block;
+        }
+    }
+
+    .profile_info_iner {
+        display: none;
+    }
+
+}
+
+.profile_info .profile_info_iner {
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    text-align: left;
+    width: 215px;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    top: 77px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: 0 0 2px 2px rgb(62 217 124 / 10%);
+}
+
+.profile_info img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile_info .profile_info_iner .profile_author_name {
+    padding: 20px 25px;
+    background: #0f1a34;
+    border-radius: 0;
+}
+
+.profile_info .profile_info_iner::before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    top: -10px;
+    right: 15px;
+    border-width: 0 11px 12px;
+    border-color: transparent transparent #0f1a34 transparent;
+    z-index: 2;
+}
+
+.f_w_500 {
+    font-weight: 500;
+}
+
+.f_s_15 {
+    font-size: 15px;
+}
+
+.profile_info .author_name h4 {
+    color: #434750;
+    margin-bottom: 0;
+    line-height: 18px;
+}
+
+.profile_info .profile_info_details {
+    padding: 20px 25px;
+}
+
+.Menu_NOtification_Wrap .notification_Header,
+.Menu_mails_Wrap .mails_Header {
+    padding: 15px 20px;
+    border-radius: 0;
+    background: #0f1a34;
+}
+
+.Menu_mails_Wrap.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(251px) translateX(-189px);
+}
+
+.Menu_mails_Wrap {
+    background: #fff;
+    box-shadow: 0 10px 15px rgb(6 0 8 / 22%);
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    transform: translateY(30px) translateX(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 20;
+}
+
+.Menu_mails_Wrap .mails_body {
+    padding: 20px;
+    height: 300px;
+    overflow: auto;
+}
+
+.single_mail {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.Menu_mails_Wrap .mail_footer {
+    padding: 13px 20px;
+    background: #f5f7f9;
+    border-radius: 0;
+}
+
+.Menu_NOtification_Wrap.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(20px) translateX(-117px);
+}
+
+.Menu_NOtification_Wrap {
+    background: #fff;
+    box-shadow: 0 10px 15px rgb(6 0 8 / 22%);
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    transform: translateY(30px) translateX(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 20;
+}
+
+.Menu_NOtification_Wrap .Notification_body {
+    padding: 20px;
+    height: 300px;
+    overflow: auto;
+}
+
+.single_notify {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.Menu_NOtification_Wrap .nofity_footer {
+    padding: 13px 20px;
+    background: #f5f7f9;
+    border-radius: 0;
+}
+
+.header_iner .header_right .header_notification_warp li:last-child a {
+    margin-right: 0;
+}
+
+.header_iner .header_right .header_notification_warp li>a {
+    position: relative;
+    margin-right: 10px;
+    width: 47px;
+    height: 47px;
+    background: 0 0;
+    text-align: center;
+    border-radius: 50%;
+    display: inline-block;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex: 47px 0 0;
+    background: #f9f9f9;
+}
+
+.header_iner .header_right .header_notification_warp {
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+.notif,
+.msg {
+    background: #e4f5ff;
+    height: 45px !important;
+    width: 45px !important;
+    margin: 0 0.5rem;
+    align-items: center;
+    display: flex !important;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.mr_20 {
+    margin-right: 20px;
+}
+
+@media(max-width:575px) {
+    .Menu_NOtification_Wrap.active  { 
+        transform: translateY(20px) translateX(0px)!important;
+    }
+     .Menu_mails_Wrap.active{ 
+        transform: translateY(251px) translateX(0px)!important;
+    }
+    .Menu_NOtification_Wrap,.Menu_mails_Wrap  { 
+        width: 317px; 
+    }
+    .f_s_12,.f_s_15{font-size: 12px;}
+    #apexchartsetvbo87sh {
+        overflow: auto;
+        width: 100%!important;
+        height: fit-content!important;
+    }
+}

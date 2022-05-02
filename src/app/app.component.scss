@@ -1,0 +1,156 @@
+.sidenav {
+  width: 250px;
+  background: #0f1a34;
+  border-right: 1px solid lightgray;
+}
+
+.sidenav:not(.mat-drawer-opened) {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  width: 80px !important;
+  overflow: hidden;
+  padding: 0px !important;
+  background: #0f1a34;
+}
+
+.sidenav[style*="visibility: hidden"] {
+  display: block;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  span {
+    margin-left: 10px
+  }
+  
+}
+
+.sidenav-list {
+  .sidenav-list-item {
+    height: 40px;
+    margin: 5px 0;
+
+    .mat-icon {
+      color: #fff;
+      font-size: 23px;
+      margin-right: 20px;
+    }
+
+    span {
+      color: #fff;
+      cursor: pointer;
+
+    }
+
+    &:hover {
+      background: #f8f8f9;
+      border-radius: 4px;
+
+      .mat-icon,
+      span {
+        color: #0f1a34;
+      }
+    }
+
+    &.active {
+      background: #f8f8f9;
+      border-radius: 4px;
+
+      .mat-icon,
+      span {
+        color: #0f1a34;
+      }
+    }
+  }
+}
+
+.sidenav:not(.mat-drawer-opened) {
+  .sidenav-list {
+    .sidenav-list-item {
+      .mat-icon {
+        font-size: 23px;
+        padding-left: 4px;
+        align-items: center;
+      }
+    }
+
+  }
+}
+
+
+.sidenav:not(.mat-drawer-opened) span {
+  display: none !important;
+}
+
+.sidenav:not(.mat-drawer-opened) .heading {
+  flex-direction: column !important;
+}
+
+.sidenav-content-closed {
+  margin-left: 75px;
+}
+
+
+.display-md {
+  display: none;
+}
+
+.hidden-md {
+  display: block;
+}
+
+.sidenav-content {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  background-color: #eef5f9;
+  height: calc(100% - 56px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 1200px) {
+  .sidenav:not(.mat-drawer-opened) {
+    width: 0px !important;
+  }
+
+  .sidenav-content-closed {
+    margin-left: 0px !important;
+
+  }
+
+  .display-md {
+    display: block !important;
+    position: absolute;
+    top: 12px;
+    right: 287px;
+    z-index: 1101;
+  }
+
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-md {
+    right: 205px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .display-md {
+    display: block !important;
+    position: absolute;
+    top: 12px;
+    left: 5px;
+  }
+
+  .hidden-md {
+    display: block !important;
+  }
+}
